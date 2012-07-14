@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title>Waterfall Chart</title>
+	</head>
+	<body>
+		<div id="container" style="width: 800px; height: 400px; margin: 0 auto"></div>
+		<script type="text/javascript" src="javascripts/jquery-1.6.min.js"></script>
+		<script type="text/javascript" src="javascripts/highcharts.src.js"></script>
+		<script type="text/javascript" src="javascripts/mylib.js"></script>
+		<script type="text/javascript">
+			$("#container").waterfallChart({
+				series: {
+					name: 'Benchmark',
+					data: [                     
+		               { y: 25, low: 0}, 
+		               { y: 45, low: 25}, 
+		               { y: 55, low: 45}, 
+		               { y: 70, low: 55},
+		               { y: 100, low: 70},		
+		               { y: 150, low: 100},		
+		               { y: 250, low: 150},		
+					         {y: 250, low: 0}
+		            ]
+				},
+		    categories: ['Planned Care', 'Urgent Care', 'Mental Health', 'Maternity & newborn', 'Child Health', 'Prescribing', 'Learning disability', 'Total'],
+				ymax: 400
+			});
+		</script>
+
+		<!-- Some text to test !! -->
+	</body>
+</html>
