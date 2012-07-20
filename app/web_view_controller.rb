@@ -13,8 +13,6 @@ class WebViewController < UIViewController
     @webView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)
     @webView.delegate = self
     @webView.loadRequest(NSURLRequest.requestWithURL(NSURL.fileURLWithPath(NSBundle.mainBundle.pathForResource('index', ofType:'html'))))
-    # @webView.loadRequest(NSURLRequest.requestWithURL(NSURL.URLWithString("http://www.fngtps.com/")))
-    # @webView.loadHTMLString('<h1><a href="http://www.fngtps.com">Click me!</h1>', baseURL:nil)
   end
   
   # Remove the following if you're showing a status bar that's not translucent
