@@ -23,6 +23,8 @@ class WebViewController < UIViewController
   # Only add the web view when the page has finished loading
   def webViewDidFinishLoad(webView)
     self.view.addSubview(@webView)
+    jsString = format("loadColumnChart(%s);", constructJson)
+    @webView.stringByEvaluatingJavaScriptFromString(jsString)
   end
   
   # Enable rotation
@@ -43,5 +45,9 @@ class WebViewController < UIViewController
       return false
     end
     true
+  end
+
+  def constructJson
+    "{\"series\": [{\"name\": \"Brand Portfolio\",\"type\": \"column\",\"data\": [{\"y\": 22.2},{\"y\": 18},{\"y\": 18.5}]}],\"categories\": [\"Brand alpha\",\"Brand beta\",\"Brand gamma\"]}";
   end
 end

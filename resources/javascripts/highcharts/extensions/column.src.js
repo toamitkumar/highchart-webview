@@ -47,31 +47,19 @@ $.fn.columnChart = function(chartConfig) {
                 marginTop: 35,
                 spacingBottom: 30
             },
-            tooltip: {
-                backgroundColor: theme.white,
-                shadow: false,
-                useHTML: true,
-                formatter: function() {
-                    if (dataLablesEnabled) {
-                        return "<span class=\"tooltip\"><b>" + "Gap from target: " + $.hh.nf(this.point.gap, 'percentage') + "%</span>";
-                    }
-                    else {
-                        return "<span class=\"tooltip\"><b>" + $.hh.nf(this.y, chartConfig.metric_unit) + "</b><br/>Gap: " + $.hh.nf(this.point.gap, "percentage") + "%</span>";
-                    }
-                }
-            },
+            tooltip: {},
             xAxis: {
                 categories: chartConfig.categories
             },
-            yAxis: {
-                plotLines: $.hh.benchmarkPlotLines(
-                    chartConfig.plot_lines.avg.value, 
-                    chartConfig.plot_lines.target.value, 
-                    chartConfig.plot_lines.tq_avg.value,
-                    plotLinesOptions, 
-                    theme.benchmarkColors
-                )
-            },
+            // yAxis: {
+            //     plotLines: $.hh.benchmarkPlotLines(
+            //         chartConfig.plot_lines.avg.value, 
+            //         chartConfig.plot_lines.target.value, 
+            //         chartConfig.plot_lines.tq_avg.value,
+            //         plotLinesOptions, 
+            //         theme.benchmarkColors
+            //     )
+            // },
             plotOptions: {
                 column: {
                     pointWidth: $.hh.columnWidth(theme.maxColumnWidth, element.width(), chartConfig.categories.length),
@@ -92,10 +80,10 @@ $.fn.columnChart = function(chartConfig) {
             series: seriesOptions,
             labels: {
                 items: $.hh.benchmarkLabelItems(
-                chartConfig.plot_lines.avg.value,
-                chartConfig.plot_lines.target.value,
-                chartConfig.plot_lines.tq_avg.value,
-                chartConfig.series[0].metric_unit
+                // chartConfig.plot_lines.avg.value,
+                // chartConfig.plot_lines.target.value,
+                // chartConfig.plot_lines.tq_avg.value,
+                // chartConfig.series[0].metric_unit
                 ),
                 style: {
                     color: theme.labelColor
@@ -112,9 +100,9 @@ $.fn.columnChart = function(chartConfig) {
                 url: $("#" + chart.options.chart.renderTo).attr('data-annotations-url')
             });*/
             $.hh.togglePlotLines(chart, [
-            chartConfig.plot_lines.avg.value,
-            chartConfig.plot_lines.target.value,
-            chartConfig.plot_lines.tq_avg.value
+            // chartConfig.plot_lines.avg.value,
+            // chartConfig.plot_lines.target.value,
+            // chartConfig.plot_lines.tq_avg.value
             ], theme.benchmarkColors, true);
         });
     });

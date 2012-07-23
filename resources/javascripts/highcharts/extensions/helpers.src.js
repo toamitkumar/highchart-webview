@@ -2,11 +2,11 @@ $.highchartsHelper = {
     activeCharts: {},
     plugins: {},
     initChart: function(that, chartConfig, callback) {
-        if (chartConfig.chart.status.errors.length > 0) {
-            $.hh.disableChart(that, chartConfig);
-        } else {
+        // if (chartConfig.chart.status.errors.length > 0) {
+        //     $.hh.disableChart(that, chartConfig);
+        // } else {
             callback.call(that, chartConfig);
-        }
+        // }
     },
 
     loadChart: function(e, onSuccess, onFailure) {
